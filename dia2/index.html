@@ -48,7 +48,7 @@
 
     <script>
 
-        
+        // Salva as informações passadas pelo usuário e prepara a resposta de saudação
         function salvarInfos() {
             
             let nome = document.getElementById('nome').value;
@@ -59,6 +59,7 @@
             document.getElementById('saudacao').innerHTML = resposta;
         }
 
+        // Pergunta ao usuário se ele gosta de estudar a linguagem.
         function pergunta() {
 
             let linguagem = document.getElementById('linguagem').value;
@@ -66,7 +67,7 @@
 
             document.getElementById('pergunta').innerHTML = pergunta;
         }
-
+        // Responde o usuário
         function gosta(){
             if(document.getElementById('gosta').value == 1) {
                 alert('Muito bom! Continue estudando e você terá muito sucesso.')
