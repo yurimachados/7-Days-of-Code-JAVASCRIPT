@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <button type="button" class="btn btn-success" onclick="jogo()">
+            Jogar
+            </button>
+        </div>
+        <div class="row">
+            <Span>Posição</Span>
+            <p id="carreira"></p>
+        </div>
+        <div class="row">
+            <Span>Linguagem/Framework</Span>
+            <p id="lng"></p>
+        </div>
+    </div>
+
+    <script>
+
+        function jogo() {
+
+            const area = window.prompt("Escolha uma área para se especializar: Front-End ou Back-End");
+            let linguagem = "";
+
+            if (area.toLowerCase() == "front-end" || area.toLowerCase() == "frontend") {
+                linguagem = window.prompt('Escolha um frameworks: Vue ou React');
+                document.getElementById('carreira').innerHTML = "Front-End Developer"
+
+                if (linguagem.toLowerCase() == "vue") {
+                    document.getElementById('lng').innerHTML = "Vue.js";
+                } else if (linguagem.toLowerCase() == "react") {
+                    document.getElementById('lng').innerHTML = "React.js";
+                }
+
+            } else if (area.toLowerCase() == "back-end" || area.toLowerCase() == "backend") {
+                linguagem = window.prompt('Escolha uma Linguagem: Java ou C#');
+                document.getElementById('carreira').innerHTML = "Back-End Developer";
+
+                if (linguagem.toLowerCase() == "c#") {
+                    document.getElementById('lng').innerHTML = "C#";
+                } else if (linguagem.toLowerCase() == "java") {
+                    document.getElementById('lng').innerHTML = "Java";
+                }
+
+            } else  {
+                alert("Você inseriu uma área inválida!")
+            }
+
+            const especialidadeOuFullstack = prompt("Digite 1 para seguir se especializando na área escolhida ou 2 para seguir se desenvolvendo para se tornar Fullstack");
+
+            if(especialidadeOuFullstack == 1){
+                alert("Continue se especializando em " + linguagem + "para dominar a área de ${area}!");
+            } else if (especialidadeOuFullstack == 2){
+                alert("Chegou a hora de começar a aprender outras linguagens além de " + linguagem + " se você quer se tornar Fullstack!");
+            } else {
+                alert("Você precisa inserir um valor válido!");
+            }
+            
+            let msg = prompt("Tem mais alguma tecnologia que você gostaria de aprender? Digite 'ok' em caso positivo.");
+
+            while(msg === "ok") {
+                let novaTecnologia = prompt("Qual?");
+                alert(novaTecnologia  + " é realmente uma tecnologia muito legal!")
+                msg = prompt("Tem mais alguma tecnologia que você gostaria de aprender? Digite 'ok' em caso positivo.");
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
