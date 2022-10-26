@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <button onclick="listaDeMercado()">Adicionar itens</button>
+        </div>
+
+        <div class="row">
+            <h1>Lista:</h1><br>
+            <h4>Frutas</h4><br>
+            <p id="frutas"></p>
+            <h4>Congelados</h4><br>
+            <p id="congelados"></p>
+            <h4>laticinios</h4><br>
+            <p id="laticinios"></p>
+            <h4>Doces</h4><br>
+            <p id="doces"></p>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function listaDeMercado() {
+
+            let frutas = []
+            let congelados = []
+            let laticinios = []
+            let doces = []
+
+            let alimento = ""
+            let categoria = ""
+
+            let pergunta1 = 1; // Valor inicial = 1 para iniciar o while pela primeira vez;
+            
+            while (pergunta1 != 2) {
+                
+                pergunta1 = prompt("deseja adicionar alguma comida na sua lista de compras? 1 para sim ou 2 para não")
+
+                while (pergunta1 != 1 && pergunta1 != 2) { // Proibe respostas diferentes de 1 e 2
+                    alert("Operação não reconhecida!");
+                    pergunta1 = prompt("deseja adicionar alguma comida na sua lista de compras? 1 para sim ou 2 para não")
+                }
+
+                if (pergunta1 == 2){ // Se o usuário inserir 2 (não), sairá do while
+                    break;
+                }
+
+                alimento = prompt("Legal! qual alimento deseja inserir?")
+                categoria = prompt("Em qual categoria essa comida se encaixa? 1 - Frutas  2 - Congelados  3 - Laticinios  4 - Doces")
+
+
+                switch (categoria) {
+                    case '1':
+                        frutas.push(alimento)
+                        break;
+                    case '2':
+                        congelados.push(alimento)
+                        break
+                    case '3':
+                        laticinios.push(alimento)
+                        break
+                    case '4':
+                        doces.push(alimento)
+                        break;
+                    default:
+                        alert('insira uma opção válida!');
+                }
+                
+                document.getElementById('frutas').innerText = frutas;
+                document.getElementById('congelados').innerText = congelados;
+                document.getElementById('laticinios').innerText = laticinios;
+                document.getElementById('doces').innerText = doces;
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

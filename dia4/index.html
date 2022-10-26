@@ -22,13 +22,41 @@
 
         <div class="row">
             <button type="button" class="btn btn-success" onclick="jogo()">
-            Jogar
+                Jogar
             </button>
 
-    <script>
+            <span>Chances: <p id="chances"></p></span>
+        </div>
+
+    </div>
+            <script>
+
+                function jogo() { 
+
+                    let chance;
+                    let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+                    
+                    for (chance = 3; chance > 0; chance--){
+                        chute = prompt('Tente descobrir o número secreto: ')
+                        document.getElementById('chances').innerHTML = chance;
+                        
+                        if (chute == numeroSecreto) {
+                            alert("parabéns você é foda!")
+                        } else if (chute == 0){
+                            alert("Você perdeu :/")
+                        }
+
+                        // console.log("Chances: " + chance);
+                        // console.log("numero secreto:" + numeroSecreto);
+                    }
+                    
+                    
+
+                }
 
 
-    </script>
+
+            </script>
 
 </body>
 
