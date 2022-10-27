@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <button class="btn btn-success" onclick="listaDeMercado()">Adicionar itens</button>
+        </div>
+
+        <div class="row">
+            <h1>Lista:</h1><br>
+            <p id="list"></p>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function listaDeMercado() {
+
+            let lista = []
+
+            let alimento = ""
+
+            let pergunta1 = 1; // Valor inicial = 1 para iniciar o while pela primeira vez;
+
+            while (pergunta1 != 3) {
+
+                pergunta1 = prompt("1 = Adicionar um item na lista de compras; 2 = Remover um item da lista de compras; 3 = Encerrar operação;")
+
+                while (pergunta1 != 1 && pergunta1 != 2 && pergunta1 != 3) { // Proibe respostas diferentes de 1 e 2
+                    alert("Operação não reconhecida!");
+                    pergunta1 = prompt("1 = Adicionar um item na lista de compras; 2 = Remover um item da lista de compras;  3 = Encerrar operação;")
+                }
+
+                if (pergunta1 == 1) { // Se o usuário inserir 2 (não), sairá do while
+                    alimento = prompt("Legal! qual alimento deseja inserir?")
+                    lista.push(alimento)
+                    console.log(lista)
+
+                } else if (pergunta1 == 2) {
+                    let deleted = prompt("Qual item você deseja deletar?")
+                    let i = lista.indexOf(deleted)
+                    let confirmacao = ("Você realmente deseja deletar " + deleted + "?")
+
+                    if (i != -1) {
+
+                        lista.splice(i)
+                        alert("Lista: " + lista)
+
+
+                    } else {
+                        alert('elemento não encontrado!')
+                    }
+
+                } else if (pergunta1 == 3) {
+                    alert('Operação encerrada');
+                }
+
+                document.getElementById('list').innerText = lista;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
